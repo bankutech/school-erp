@@ -1,0 +1,47 @@
+{
+  "name": "school-erp-monorepo",
+  "version": "1.0.0",
+  "description": "Enterprise-grade School Management & ERP System",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "dev:api": "npm run dev --workspace=apps/api",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
+    "prisma:migrate": "prisma migrate dev --schema=./prisma/schema.prisma",
+    "prisma:seed": "node --loader ts-node/esm prisma/seed.ts",
+    "prisma:studio": "prisma studio --schema=./prisma/schema.prisma"
+  },
+  "keywords": [
+    "school-erp",
+    "education",
+    "management",
+    "student-information-system"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.8",
+    "@types/node": "^22.10.2",
+    "@types/pg": "^8.23.1",
+    "@types/testing-library__jest-dom": "^5.14.9",
+    "happy-dom": "^21.0.4",
+    "identity-obj-proxy": "^3.0.0",
+    "prisma": "^6.2.1",
+    "typescript": "^5.7.2",
+    "vitest": "^5.0.5"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.10.1",
+    "pg": "^8.23.1"
+  }
+}
